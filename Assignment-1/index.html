@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XYZ Bank</title>
+    <script>
+        window.onload = function () {
+            alert("Welcome to XYZ Bank !!!");
+        };
+
+        function registerCustomer() {
+            document.getElementById("steps").style.display = "none";
+        }
+
+        function validateCustomer() {
+            var cid = document.getElementById("customerId").value;
+
+            if (cid == "") {
+                alert("Please Enter Customer ID");
+            } else {
+                alert("Customer Validated Successfully");
+            }
+        }
+
+        function generateCoupon() {
+            var cid = document.getElementById("customerId").value;
+
+            if (cid == "") {
+                alert("Enter Customer ID First");
+                return;
+            }
+
+            var coupon = "DIWALI" + cid.substring(cid.length - 4);
+
+            document.getElementById("coupon").innerHTML =
+                "<h3>Your Coupon Code : " + coupon + "</h3>";
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Welcome Customer !!!</h2>
+
+    <div id="steps">
+        <h3>Follow the below Steps to get Diwali Coupon:</h3>
+        <p>1) Enter your Customer ID in the textbox.</p>
+        <p>2) Click on Validate Customer button.</p>
+        <p>3) Click on Generate Coupon button.</p>
+    </div>
+
+    <button onclick="registerCustomer()">Click here to Register</button>
+
+    <br><br><br>
+
+    <label>Enter Customer ID:</label>
+    <input type="text" id="customerId">
+
+    <br><br>
+
+    <button onclick="validateCustomer()">Validate Customer</button>
+    <button onclick="generateCoupon()">Click here to generate coupon</button>
+
+    <br><br>
+
+    <div id="coupon"></div>
+</body>
+</html>
